@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>风味烧烤-登录</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!--// bootstrap-css -->
+<!-- css -->
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+<link href="css/signin.css" rel="stylesheet">
+<!--// css -->
+<!-- font-awesome icons -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/SmoothScroll.min.js"></script>
+</head>
+<body>
+	<div class="bg-img">
+		<!-- banner -->
+		<div class="banner code-banner">
+			<div class="container">
+				<div class="header">
+					<div class="logo">
+						<h1><a href="/">风味烧烤</a></h1>
+					</div>
+					<div class="user-info">
+						<p></p>
+					</div>
+					<div class="clearfix"> </div>
+					<div class="top-nav">
+						<nav class="navbar navbar-default">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Menu						
+								</button>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li><a href="/">首页</a></li>
+									<li><a href="/menu">点餐</a></li>
+									<li><a class="active" href="/login">登录</a></li>
+									<div class="clearfix"> </div>
+								</ul>	
+							</div>	
+						</nav>		
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+		<!-- //banner -->
+	</div>
+	<!-- contact -->
+	<div class="contact-content">
+		<div class="container">
+			
+			<div class="jumbotron">
+				<div class="contact-heading">
+					<h2>登录</h2>
+				</div>
+				<div class="container">
+					<form class="form-signin" role="form" method="post">
+						<input name="username" type="text" class="form-control" placeholder="请输入用户名" required="" autofocus="">
+						<input name="password" type="password" class="form-control" placeholder="请输入密码" required="">
+						<div class="checkbox">
+							<label>
+								<input name="remember" type="checkbox" value="remember-me" checked="checked"> 记住我
+							</label>
+						</div>
+						<button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+					</form>
+					<h4 class="err-msg" th:text="${msg}">你好</h4>
+				</div>
+			</div>
+		</div> 			
+	</div>
+	<!-- //contact -->
+	<!-- copyright -->
+	<div class="copyright">
+		<div class="container">
+			<div class="agileinfo">
+				<p>Copyright &copy; 2016 LiaoYiji. All rights reserved.</p>
+			</div>
+		</div>
+	</div>
+	<!-- //copyright -->
+</body>	
+</html>

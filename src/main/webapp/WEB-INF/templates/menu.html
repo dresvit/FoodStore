@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>风味烧烤-点餐</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/font-awesome.min.css" rel="stylesheet" />
+<!--// bootstrap-css -->
+<!-- css -->
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+<link href="css/bootstrap-spinner.css" rel="stylesheet" />
+<!--// css -->
+<!-- font-awesome icons -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/SmoothScroll.min.js"></script>
+<script src="js/jquery.spinner.min.js"></script>
+<script src="js/money.js"></script>
+</head>
+<body>
+	<div class="bg-img">
+		<!-- banner -->
+		<div class="banner code-banner">
+			<div class="container">
+				<div class="header">
+					<div class="logo">
+						<h1><a href="/">风味烧烤</a></h1>
+					</div>
+					<div class="user-info">
+						<p th:text="${user_info}"></p>
+					</div>
+					<div class="clearfix"> </div>
+					<div class="top-nav">
+						<nav class="navbar navbar-default">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Menu						
+								</button>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li><a href="/">首页</a></li>
+									<li><a class="active" href="/menu">点餐</a></li>
+									<li><a href="/login" th:href="@{${login_btn}}" th:text="${login_text}">登录</a></li>
+									<div class="clearfix"> </div>
+								</ul>	
+							</div>	
+						</nav>		
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+		<!-- //banner -->
+	</div>
+	<!-- news -->
+	<div class="news">
+		<div class="container">
+			<div class="news-heading">
+				<h2>菜品一览</h2>
+			</div>
+			<div class="news-grids">
+				<div class="news-grids-heading">
+					<h3>所有菜品（点击菜品可查看对应详情）</h3>
+				</div>
+				<div class="col-md-4 news-grid">
+					<div class="agile-news-grid-info">
+						<div class="news-grid-info-img">
+							<a href="/cuisine_detail/food1"><img src="images/n1.jpg" alt=""></a>
+						</div>
+						<div class="news-grid-info-bottom">
+							<div class="date-grid">
+								<span class="news-grid-info-bottom-text">
+									<a href="/cuisine_detail/food1" th:text="${food.get(0).foodname}">五香土豆</a>
+								</span>
+								<span class="time" style="display:none;" th:style="${vip_hidden} ? 'display:none;' : (${food.get(0).isvip} ? '' : 'display:none;')">
+									<p><i class="fa fa-star" aria-hidden="true"></i> VIP</p>
+								</span>
+								<span class="price">¥<span class="price-val" id="price1" th:text="${food.get(0).price}">20.00</span></span>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="date-grid">
+								<div class="quantity-text">选择数量</div>
+								<div class="quantity">
+									<div class="input-group spinner" data-trigger="spinner" id="spinner">
+										<input type="text" class="form-control cuisine-quantity" value="0" data-max="1000" th:data-max="${food.get(0).quantity}" data-min="0" data-step="1" id="pos1">
+										<div class="input-group-addon">
+											<a href="javascript:;" class="spin-up" data-spin="up"><i class="icon-sort-up"></i></a>
+											<a href="javascript:;" class="spin-down" data-spin="down"><i class="icon-sort-down"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="quantity-rest" th:text="|（限购${food.get(0).quantity}份）|">（限购1000份）</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 news-grid">
+					<div class="agile-news-grid-info">
+						<div class="news-grid-info-img">
+							<a href="/cuisine_detail/food2"><img src="images/n2.jpg" alt=""></a>
+						</div>
+						<div class="news-grid-info-bottom">
+							<div class="date-grid">
+								<span class="news-grid-info-bottom-text">
+									<a href="/cuisine_detail/food2" th:text="${food.get(1).foodname}">椒盐鸡翅</a>
+								</span>
+								<span class="time" style="display:none;" th:style="${vip_hidden} ? 'display:none;' : (${food.get(1).isvip} ? '' : 'display:none;')">
+									<p><i class="fa fa-star" aria-hidden="true"></i> VIP</p>
+								</span>
+								<span class="price">¥<span class="price-val" id="price2" th:text="${food.get(1).price}">20.00</span></span>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="date-grid">
+								<div class="quantity-text">选择数量</div>
+								<div class="quantity">
+									<div class="input-group spinner" data-trigger="spinner" id="spinner">
+										<input type="text" class="form-control cuisine-quantity" value="0" data-max="1000" th:data-max="${food.get(1).quantity}" data-min="0" data-step="1" id="pos2">
+										<div class="input-group-addon">
+											<a href="javascript:;" class="spin-up" data-spin="up"><i class="icon-sort-up"></i></a>
+											<a href="javascript:;" class="spin-down" data-spin="down"><i class="icon-sort-down"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="quantity-rest" th:text="|（限购${food.get(1).quantity}份）|">（限购1000份）</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 news-grid">
+					<div class="agile-news-grid-info">
+						<div class="news-grid-info-img">
+							<a href="/cuisine_detail/food3"><img src="images/n3.jpg" alt=""></a>
+						</div>
+						<div class="news-grid-info-bottom">
+							<div class="date-grid">
+								<span class="news-grid-info-bottom-text">
+									<a href="/cuisine_detail/food3" th:text="${food.get(2).foodname}">西兰花炒虾仁</a>
+								</span>
+								<span class="time" style="display:none;" th:style="${vip_hidden} ? 'display:none;' : (${food.get(2).isvip} ? '' : 'display:none;')">
+									<p><i class="fa fa-star" aria-hidden="true"></i> VIP</p>
+								</span>
+								<span class="price">¥<span class="price-val" id="price3" th:text="${food.get(2).price}">20.00</span></span>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="date-grid">
+								<div class="quantity-text">选择数量</div>
+								<div class="quantity">
+									<div class="input-group spinner" data-trigger="spinner" id="spinner">
+										<input type="text" class="form-control cuisine-quantity" value="0" data-max="1000" th:data-max="${food.get(2).quantity}" data-min="0" data-step="1" id="pos3">
+										<div class="input-group-addon">
+											<a href="javascript:;" class="spin-up" data-spin="up"><i class="icon-sort-up"></i></a>
+											<a href="javascript:;" class="spin-down" data-spin="down"><i class="icon-sort-down"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="quantity-rest" th:text="|（限购${food.get(2).quantity}份）|">（限购1000份）</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 news-grid">
+					<div class="agile-news-grid-info">
+						<div class="news-grid-info-img">
+							<a href="/cuisine_detail/food4"><img src="images/n4.jpg" alt=""></a>
+						</div>
+						<div class="news-grid-info-bottom">
+							<div class="date-grid">
+								<span class="news-grid-info-bottom-text">
+									<a href="/cuisine_detail/food4" th:text="${food.get(3).foodname}">秘制羊肉串</a>
+								</span>
+								<span class="time" style="display:none;" th:style="${vip_hidden} ? 'display:none;' : (${food.get(3).isvip} ? '' : 'display:none;')">
+									<p><i class="fa fa-star" aria-hidden="true"></i> VIP</p>
+								</span>
+								<span class="price">¥<span class="price-val" id="price4" th:text="${food.get(3).price}">20.00</span></span>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="date-grid">
+								<div class="quantity-text">选择数量</div>
+								<div class="quantity">
+									<div class="input-group spinner" data-trigger="spinner" id="spinner">
+										<input type="text" class="form-control cuisine-quantity" value="0" data-max="1000" th:data-max="${food.get(3).quantity}" data-min="0" data-step="1" id="pos4">
+										<div class="input-group-addon">
+											<a href="javascript:;" class="spin-up" data-spin="up"><i class="icon-sort-up"></i></a>
+											<a href="javascript:;" class="spin-down" data-spin="down"><i class="icon-sort-down"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="quantity-rest" th:text="|（限购${food.get(3).quantity}份）|">（限购1000份）</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 news-grid">
+					<div class="agile-news-grid-info">
+						<div class="news-grid-info-img">
+							<a href="/cuisine_detail/food5"><img src="images/n5.jpg" alt=""></a>
+						</div>
+						<div class="news-grid-info-bottom">
+							<div class="date-grid">
+								<span class="news-grid-info-bottom-text">
+									<a href="/cuisine_detail/food5" th:text="${food.get(4).foodname}">铁板烧肉</a>
+								</span>
+								<span class="time" style="display:none;" th:style="${vip_hidden} ? 'display:none;' : (${food.get(4).isvip} ? '' : 'display:none;')">
+									<p><i class="fa fa-star" aria-hidden="true"></i> VIP</p>
+								</span>
+								<span class="price">¥<span class="price-val" id="price5" th:text="${food.get(4).price}">20.00</span></span>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="date-grid">
+								<div class="quantity-text">选择数量</div>
+								<div class="quantity">
+									<div class="input-group spinner" data-trigger="spinner" id="spinner">
+										<input type="text" class="form-control cuisine-quantity" value="0" data-max="1000" th:data-max="${food.get(4).quantity}" data-min="0" data-step="1" id="pos5">
+										<div class="input-group-addon">
+											<a href="javascript:;" class="spin-up" data-spin="up"><i class="icon-sort-up"></i></a>
+											<a href="javascript:;" class="spin-down" data-spin="down"><i class="icon-sort-down"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="quantity-rest" th:text="|（限购${food.get(4).quantity}份）|">（限购1000份）</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 news-grid">
+					<div class="agile-news-grid-info">
+						<div class="news-grid-info-img">
+							<a href="/cuisine_detail/food6"><img src="images/n6.jpg" alt=""></a>
+						</div>
+						<div class="news-grid-info-bottom">
+							<div class="date-grid">
+								<span class="news-grid-info-bottom-text">
+									<a href="/cuisine_detail/food6" th:text="${food.get(5).foodname}">脆皮鸡翅</a>
+								</span>
+								<span class="time" style="display:none;" th:style="${vip_hidden} ? 'display:none;' : (${food.get(5).isvip} ? '' : 'display:none;')">
+									<p><i class="fa fa-star" aria-hidden="true"></i> VIP</p>
+								</span>
+								<span class="price">¥<span class="price-val" id="price6" th:text="${food.get(5).price}">20.00</span></span>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="date-grid">
+								<div class="quantity-text">选择数量</div>
+								<div class="quantity">
+									<div class="input-group spinner" data-trigger="spinner" id="spinner">
+										<input type="text" class="form-control cuisine-quantity" value="0" data-max="1000" th:data-max="${food.get(5).quantity}" data-min="0" data-step="1" id="pos6">
+										<div class="input-group-addon">
+											<a href="javascript:;" class="spin-up" data-spin="up"><i class="icon-sort-up"></i></a>
+											<a href="javascript:;" class="spin-down" data-spin="down"><i class="icon-sort-down"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="quantity-rest" th:text="|（限购${food.get(5).quantity}份）|">（限购1000份）</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 news-grid">
+					<div class="agile-news-grid-info">
+						<div class="news-grid-info-img">
+							<a href="/cuisine_detail/food7"><img src="images/n7.jpg" alt=""></a>
+						</div>
+						<div class="news-grid-info-bottom">
+							<div class="date-grid">
+								<span class="news-grid-info-bottom-text">
+									<a href="/cuisine_detail/food7" th:text="${food.get(6).foodname}">麻辣鸡翅</a>
+								</span>
+								<span class="time" style="display:none;" th:style="${vip_hidden} ? 'display:none;' : (${food.get(6).isvip} ? '' : 'display:none;')">
+									<p><i class="fa fa-star" aria-hidden="true"></i> VIP</p>
+								</span>
+								<span class="price">¥<span class="price-val" id="price7" th:text="${food.get(6).price}">20.00</span></span>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="date-grid">
+								<div class="quantity-text">选择数量</div>
+								<div class="quantity">
+									<div class="input-group spinner" data-trigger="spinner" id="spinner">
+										<input type="text" class="form-control cuisine-quantity" value="0" data-max="1000" th:data-max="${food.get(6).quantity}" data-min="0" data-step="1" id="pos7">
+										<div class="input-group-addon">
+											<a href="javascript:;" class="spin-up" data-spin="up"><i class="icon-sort-up"></i></a>
+											<a href="javascript:;" class="spin-down" data-spin="down"><i class="icon-sort-down"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="quantity-rest" th:text="|（限购${food.get(6).quantity}份）|">（限购1000份）</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 news-grid">
+					<div class="agile-news-grid-info">
+						<div class="news-grid-info-img">
+							<a href="/cuisine_detail/food8"><img src="images/n8.jpg" alt=""></a>
+						</div>
+						<div class="news-grid-info-bottom">
+							<div class="date-grid">
+								<span class="news-grid-info-bottom-text">
+									<a href="/cuisine_detail/food8" th:text="${food.get(7).foodname}">宫保鸡丁</a>
+								</span>
+								<span class="time" style="display:none;" th:style="${vip_hidden} ? 'display:none;' : (${food.get(7).isvip} ? '' : 'display:none;')">
+									<p><i class="fa fa-star" aria-hidden="true"></i> VIP</p>
+								</span>
+								<span class="price">¥<span class="price-val" id="price8" th:text="${food.get(7).price}">20.00</span></span>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="date-grid">
+								<div class="quantity-text">选择数量</div>
+								<div class="quantity">
+									<div class="input-group spinner" data-trigger="spinner" id="spinner">
+										<input type="text" class="form-control cuisine-quantity" value="0" data-max="1000" th:data-max="${food.get(7).quantity}" data-min="0" data-step="1" id="pos8">
+										<div class="input-group-addon">
+											<a href="javascript:;" class="spin-up" data-spin="up"><i class="icon-sort-up"></i></a>
+											<a href="javascript:;" class="spin-down" data-spin="down"><i class="icon-sort-down"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="quantity-rest" th:text="|（限购${food.get(7).quantity}份）|">（限购1000份）</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 news-grid">
+					<div class="agile-news-grid-info">
+						<div class="news-grid-info-img">
+							<a href="/cuisine_detail/food9"><img src="images/n9.jpg" alt=""></a>
+						</div>
+						<div class="news-grid-info-bottom">
+							<div class="date-grid">
+								<span class="news-grid-info-bottom-text">
+									<a href="/cuisine_detail/food9" th:text="${food.get(8).foodname}">酸甜排骨</a>
+								</span>
+								<span class="time" style="display:none;" th:style="${vip_hidden} ? 'display:none;' : (${food.get(8).isvip} ? '' : 'display:none;')">
+									<p><i class="fa fa-star" aria-hidden="true"></i> VIP</p>
+								</span>
+								<span class="price">¥<span class="price-val" id="price9" th:text="${food.get(8).price}">20.00</span></span>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="date-grid">
+								<div class="quantity-text">选择数量</div>
+								<div class="quantity">
+									<div class="input-group spinner" data-trigger="spinner" id="spinner">
+										<input type="text" class="form-control cuisine-quantity" value="0" data-max="1000" th:data-max="${food.get(8).quantity}" data-min="0" data-step="1" id="pos9">
+										<div class="input-group-addon">
+											<a href="javascript:;" class="spin-up" data-spin="up"><i class="icon-sort-up"></i></a>
+											<a href="javascript:;" class="spin-down" data-spin="down"><i class="icon-sort-down"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="quantity-rest" th:text="|（限购${food.get(8).quantity}份）|">（限购1000份）</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+
+			<div class="container">
+				<form class="money-div" action="/submit" method="post" style="display:none;" th:style="${pay_show}">
+					<span class="money-pay-text">实付款：</span>
+					<span class="money-pay"></span>
+					<input class="money-pay-hidden" name="amount" type="hidden">
+					<button id="submit-btn" type="submit" class="btn btn-lg btn-danger">提交订单</button>
+				</form>
+				<div class="warn-div" style="" th:style="${login_show}">
+					<span class="money-pay-text">请登录，再点餐！</span>
+					<a href="/login"><button type="button" class="btn btn-lg btn-danger">登录</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //news -->
+	<!-- copyright -->
+	<div class="copyright">
+		<div class="container">
+			<div class="agileinfo">
+				<p>Copyright &copy; 2016 LiaoYiji. All rights reserved.</p>
+			</div>
+		</div>
+	</div>
+	<!-- //copyright -->
+</body>	
+</html>

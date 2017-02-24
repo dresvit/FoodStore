@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>风味烧烤-首页-欢迎来到风味烧烤！</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!--// bootstrap-css -->
+<!-- css -->
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+<!--// css -->
+<!-- font-awesome icons -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/SmoothScroll.min.js"></script>
+</head>
+<body>
+	<script src="js/jquery.vide.min.js"></script>
+	<div data-vide-bg="video/cook">
+		<!-- banner -->
+		<div class="banner">
+			<div class="container">
+				<div class="header">
+					<div class="logo">
+						<h1><a href="/">风味烧烤</a></h1>
+					</div>
+					<div class="user-info">
+						<p th:text="${user_info}"></p>
+					</div>
+					<div class="clearfix"> </div>
+					<div class="top-nav">
+						<nav class="navbar navbar-default">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Menu						
+								</button>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li><a class="active" href="/">首页</a></li>
+									<li><a href="/menu">点餐</a></li>
+									<li><a href="/login" th:href="@{${login_btn}}" th:text="${login_text}">登录</a></li>
+									<div class="clearfix"> </div>
+								</ul>	
+							</div>	
+						</nav>		
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="banner-info">
+					<h2>欢迎光临！</h2>
+					<p>风味烧烤是一家以烧烤为主的美食店，佳肴品种繁多，欢迎您的品尝</p>
+					<a href="/menu"><button type="button" class="btn btn-lg btn-success">开始点餐</button></a>
+				</div>
+				<div class="banner-grads">
+					<div class="col-md-4 banner-grad">
+						<div class="banner-grad-img">
+							<img src="images/b1.jpg" alt="" />
+							<h4>脆皮鸡翅</h4>
+						</div>
+					</div>
+					<div class="col-md-4 banner-grad">
+						<div class="banner-grad-img">
+							<img src="images/b2.jpg" alt="" />
+							<h4>五香土豆</h4>
+						</div>
+					</div>
+					<div class="col-md-4 banner-grad">
+						<div class="banner-grad-img">
+							<img src="images/b3.jpg" alt="" />
+							<h4>铁板烧肉</h4>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+		<!-- //banner -->
+	</div>
+	<!-- special -->
+	<div class="special">
+		<div class="container">
+			<div class="special-heading">
+				<h3>特色推荐</h3>
+			</div>
+			<div class="special-grids">
+				<div class="col-md-4 w3l-special-grid">
+					<div class="col-md-6 w3ls-special-img">
+						<div class="w3ls-special-text effect-1">
+							<h4>炸鸡薯条</h4>
+						</div>
+					</div>
+					<div class="col-md-6 agileits-special-info">
+						<h4>炸鸡薯条</h4>
+						<p>优质马铃薯，秘制鸡块，香脆可口，回味无穷</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-4 w3l-special-grid">
+					<div class="col-md-6 w3ls-special-img wthree-img">
+						<div class="w3ls-special-text effect-1">
+							<h4>番茄牛肉</h4>
+						</div>
+					</div>
+					<div class="col-md-6 agileits-special-info">
+						<h4>番茄牛肉</h4>
+						<p>番茄鲜嫩，牛肉质量上乘，咸甜适中，质嫩爽口</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-4 w3l-special-grid">
+					<div class="col-md-6 w3ls-special-img wthree-img1">
+						<div class="w3ls-special-text effect-1">
+							<h4>肉酱意粉</h4>
+						</div>
+					</div>
+					<div class="col-md-6 agileits-special-info">
+						<h4>肉酱意粉</h4>
+						<p>意粉由优质面粉精制而成，香甜软糯，肉酱鲜美</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-4 w3l-special-grid">
+					<div class="col-md-6 agileits-special-info">
+						<h4>宫保鸡丁</h4>
+						<p>选用新鲜鸡肉为主料，肉质滑脆，香辣味浓</p>
+					</div>
+					<div class="col-md-6 w3ls-special-img wthree-img2">
+						<div class="w3ls-special-text effect-1">
+							<h4>宫保鸡丁</h4>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-4 w3l-special-grid">
+					<div class="col-md-6 agileits-special-info">
+						<h4>黄金面包</h4>
+						<p>精选小麦磨粉烤制而成，香飘十里，色味俱佳</p>
+					</div>
+					<div class="col-md-6 w3ls-special-img wthree-img3">
+						<div class="w3ls-special-text effect-1">
+							<h4>黄金面包</h4>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-4 w3l-special-grid">
+					<div class="col-md-6 agileits-special-info">
+						<h4>馒头腊肉</h4>
+						<p>腊肉经蜜汁腌制，配以香软的馒头，口齿留香</p>
+					</div>
+					<div class="col-md-6 w3ls-special-img wthree-img4">
+						<div class="w3ls-special-text effect-1">
+							<h4>馒头腊肉</h4>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- //special -->
+	<!-- customer -->
+	<div class="customer">
+		<div class="container">
+			<div class="customer-heading">
+				<h3>顾客评价</h3>
+			</div>
+			<div class="customer-heading-grids">
+				<div class="col-md-4 customer-grid">
+					<div class="customer-info">
+						<p>本来对烧烤就情有独钟，能在晚饭时段吃烧烤的店，还在家附近，简直完美。酸菜味的烤迴鱼，基本没有骨头的，这里的酸菜味做的挺特别，酸菜都切碎了，你基本夹不到，配菜也很特别，是酸萝卜，年糕，鲜山药。萝卜一般，倒是年糕和山药入味以后，超好吃有没有，鱼肉也很嫩。</p>
+					</div>
+					<div class="customer-img">
+						<img src="images/c1.jpg" alt="" />
+						<h5>David</h5>
+					</div>
+				</div>
+				<div class="col-md-4 customer-grid">
+					<div class="customer-info">
+						<p>点的所有串都不加辣，也很够香够味，牛里脊要五成熟的，实际上是全熟，有点老，幸好小小串挺好咬。果然惊喜是后面的一块肥肉，烤得外皮脆、内里喷汁，香口得不得了，一点都不觉得肥！简直是画龙点睛！全场最爱是烤土豆！！香脆！有薯片的感觉！加点孜然和盐就跟吃薯片一样！</p>
+					</div>
+					<div class="customer-img">
+						<img src="images/c2.jpg" alt="" />
+						<h5>Linda</h5>
+					</div>
+				</div>
+				<div class="col-md-4 customer-grid">
+					<div class="customer-info">
+						<p>相比芦笋给我们带来的小惊喜，澳洲M5级和牛牛小排更让我们开眼界。秘制沙拉汁浅淋在牛小排之上，一旁的蔬菜沙拉也用了同样的酱汁，既做点缀，又解腻之功效。如果觉得咸度不够，还可以根据口味蘸一些盐。那牛肉入口化渣，一点没有肉腥味，留在舌尖的，是无限的满足～～～</p>
+					</div>
+					<div class="customer-img">
+						<img src="images/c3.jpg" alt="" />
+						<h5>Sam</h5>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- //customer -->
+	<!-- copyright -->
+	<div class="copyright">
+		<div class="container">
+			<div class="agileinfo">
+				<p>Copyright &copy; 2016 LiaoYiji. All rights reserved.</p>
+			</div>
+		</div>
+	</div>
+	<!-- //copyright -->
+</body>	
+</html>

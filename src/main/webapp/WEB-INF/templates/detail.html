@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>风味烧烤-菜品详情</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!--// bootstrap-css -->
+<!-- css -->
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+<!--// css -->
+<!-- font-awesome icons -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/SmoothScroll.min.js"></script>
+</head>
+<body>
+	<div class="bg-img">
+		<!-- banner -->
+		<div class="banner code-banner">
+			<div class="container">
+				<div class="header">
+					<div class="logo">
+						<h1><a href="/">风味烧烤</a></h1>
+					</div>
+					<div class="user-info">
+						<p th:text="${user_info}"></p>
+					</div>
+					<div class="clearfix"> </div>
+					<div class="top-nav">
+						<nav class="navbar navbar-default">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Menu						
+								</button>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li><a href="/">首页</a></li>
+									<li><a href="/menu">点餐</a></li>
+									<li><a href="/login" th:href="@{${login_btn}}" th:text="${login_text}">登录</a></li>
+									<div class="clearfix"> </div>
+								</ul>	
+							</div>	
+						</nav>		
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+		<!-- //banner -->
+	</div>
+	<!-- single -->
+	<div class="blog">
+			<!-- container -->
+			<div class="container">
+				<div class="contact-heading">
+					<h2>菜品详情</h2>
+				</div>
+				<div class="news-grids">
+					<div class="col-md-8 blog-top-left-grid">
+						<div class="left-blog left-single">
+							<div class="blog-left">
+								<div class="single-left-left">
+									<h3 th:text="${food_detail.foodname}">椒盐鸡翅</h3>
+									<p>Posted By Admin &nbsp; on Nov 20, 2016</p>
+									<img src="images/n2.jpg" th:src="@{images/{pic_name}(pic_name=${food_pic})}" alt="">
+								</div>
+								<div class="blog-left-bottom">
+									<p>
+										&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${food_detail.description}"></span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 blog-top-right-grid">
+						<div class="categories">
+							<h3>购买详情</h3>
+							<div class="container-detail">
+								<ul>
+									<li>
+										单价：¥<span th:text="${food_detail.price}">20.00</span>
+										<span class="star" style="display:none;" th:style="${vip_hidden} ? 'display:none;' : (${food_detail.isvip} ? '' : 'display:none;')">
+											<i class="fa fa-star" aria-hidden="true"></i> VIP
+										</span>
+									</li>
+									<li>折扣：<span th:text="${discount}">无</span></li>
+									<li>每次限购 <span th:text="${food_detail.quantity}">1000</span> 份</li>
+								</ul>
+							</div>
+							<a href="/menu"><button type="button" class="btn btn-lg btn-warning">返回点餐页面</button></a>
+						</div>
+						<div class="categories">
+							<h3>查看其它菜品</h3>
+							<ul class="marked-list offs1">
+								<li><a href="food1" th:text="${all_food.get(0).foodname}">五香土豆</a></li>
+								<li><a href="food2" th:text="${all_food.get(1).foodname}">椒盐鸡翅</a></li>
+								<li><a href="food3" th:text="${all_food.get(2).foodname}">西兰花炒虾仁</a></li>
+								<li><a href="food4" th:text="${all_food.get(3).foodname}">秘制羊肉串</a></li>
+								<li><a href="food5" th:text="${all_food.get(4).foodname}">铁板烧肉</a></li>
+								<li><a href="food6" th:text="${all_food.get(5).foodname}">脆皮鸡翅</a></li>
+								<li><a href="food7" th:text="${all_food.get(6).foodname}">麻辣鸡翅</a></li>
+								<li><a href="food8" th:text="${all_food.get(7).foodname}">宫保鸡丁</a></li>
+								<li><a href="food9" th:text="${all_food.get(8).foodname}">酸甜排骨</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+			<!-- //container -->
+	</div>
+	<!-- //single -->
+	<!-- copyright -->
+	<div class="copyright">
+		<div class="container">
+			<div class="agileinfo">
+				<p>Copyright &copy; 2016 LiaoYiji. All rights reserved.</p>
+			</div>
+		</div>
+	</div>
+	<!-- //copyright -->
+</body>	
+</html>

@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS `foodstore`;
+
+CREATE DATABASE `foodstore` DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
