@@ -1,6 +1,6 @@
 # FoodStore
 
-A simple Web online food ordering system.
+This is a simple Web online food ordering system.
 
 
 ## Frameworks and Tools
